@@ -20,16 +20,16 @@
   nix-env -iA nixgl.auto.nixGLDefault
   ```
 
-3. Add `dactyl.sh` as a non-steam game.
+4. Add `dactyl.sh` as a non-steam game.
 
-4. Close Steam completely.
+5. Close Steam completely.
 
-5. Copy `config/steam_input/controller_neptune.vdf` to the following location (create `Dactyl` directory if needed):
+6. Copy `config/steam_input/controller_neptune.vdf` to the following location (create `Dactyl` directory if needed):
 ```
 /home/deck/.local/share/Steam/steamapps/common/Steam Controller Configs/<your-user-id>/config/Dactyl/controller_neptune.vdf
 ```
-6. Start steam
+7. Start steam
 
-7. Go to game mode and start Dactyl
+8. Go to game mode and start Dactyl
 
-8. Hold Options button to see key bindings.
+9. Hold Options button to see key bindings.
