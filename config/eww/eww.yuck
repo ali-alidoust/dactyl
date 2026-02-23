@@ -1,0 +1,131 @@
+(defpoll dactyl_dir :interval "24h" "echo $DACTYL_DIR")
+(defvar text_start "(box :orientation 'h' :space-evenly false :valign 'center' :halign 'center' ")
+(defvar text_end ")")
+
+;; Define the window properties for Wayland
+(defwindow keybinds
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "450px"
+                      :height "300px"
+                      :anchor "center")
+  :stacking "overlay"
+  :exclusive false
+  (keybinds_wrapper))
+
+(defwidget keybinds_wrapper []
+  (eventbox
+    :onclick "eww $EWW_ARGS close keybinds"
+    :onrightclick "eww $EWW_ARGS close keybinds"
+    :onmiddleclick "eww $EWW_ARGS close keybinds"
+    :onhover "eww $EWW_ARGS close keybinds"
+    :onhoverlost "eww $EWW_ARGS close keybinds"
+    (keybinds_layout)))
+
+;; Define the main layout
+(defwidget keybinds_layout []
+  (box :class "container" :orientation "v" :space-evenly false
+    (label :class "title" :text "Dactyl Shortcuts")
+
+    (box :class "main" :orientation "h" :space-evenly true
+      (box :class "main-column" :orientation "v" :space-evenly false
+        ;; Table Headers
+        (box :class "table-header" :orientation "h" :space-evenly true
+          (label :text "Keys")
+          (label :text "Action"))
+
+        ;; Table Rows (Replace paths with your actual icon paths)
+        (shortcut_row :keys "(sdinput :name 'button_a')"
+                      :action "(label :text 'Enter')")
+
+        (shortcut_row :keys "(sdinput :name 'button_b')"
+                      :action "(label :text 'Esc')")
+
+        (shortcut_row :keys "(sdinput :name 'button_x')"
+                      :action "(label :text 'Backspace')")
+
+        (shortcut_row :keys "(sdinput :name 'button_l1')"
+                      :action "(label :text 'Prev Item (Shift+Tab)')")
+
+        (shortcut_row :keys "(sdinput :name 'button_r1')"
+                      :action "(label :text 'Next Item (Tab)')")
+
+        (shortcut_row :keys "(sdinput :name 'trackpad_r')"
+                      :action "(label :text 'Mouse Movement')")
+
+        (shortcut_row :keys "(sdinput :name 'trackpad_l') (label :text '(Circular Motion)')"
+                      :action "(label :text 'Scroll Up/Down')")
+
+        (shortcut_row :keys "(sdinput :name 'button_r2')"
+                      :action "(label :text 'Left Click')")
+
+        (shortcut_row :keys "(sdinput :name 'button_l2')"
+                      :action "(label :text 'Right Click')")
+        )
+
+
+      (box :class "main-column" :orientation "v" :space-evenly false
+        ;; Table Headers
+        (box :class "table-header" :orientation "h" :space-evenly true
+          (label :text "Keys")
+          (label :text "Action"))
+
+        ;; Table Rows
+        (shortcut_row :keys "(sdinput :name 'button_b') (label :text '(Hold)')"
+                      :action "(label :text 'Close Current Window')")
+
+        (shortcut_row :keys "(sdinput :name 'button_view')"
+                      :action "(label :text 'Launcher Menu')")
+
+        (shortcut_row :keys "(sdinput :name 'button_options')"
+                      :action "(label :text 'Context Menu')")
+
+        (shortcut_row :keys "(sdinput :name 'trackpad_r')"
+                      :action "(label :text 'Mouse Movement')")
+
+        (shortcut_row :keys "(sdinput :name 'stick_l_press')"
+                      :action "(label :text 'Kando Menu')")
+
+        (shortcut_row :keys "(sdinput :name 'stick_l')"
+                      :action "(label :unindent true :text '
+                        Select Kando Menu Item.
+                        Push a little to highlight.
+                        Push more to select.')")
+
+      )
+
+      (box :class "main-column" :orientation "v" :space-evenly false
+        ;; Table Headers
+        (box :class "table-header" :orientation "h" :space-evenly true
+          (label :text "Keys")
+          (label :text "Action"))
+
+        ;; Table Rows (Replace paths with your actual icon paths)
+        (shortcut_row :keys "(sdinput :name 'dpad')"
+                      :action "(label :text 'Up/Down/Left/Right')")
+
+        (shortcut_row :keys "(sdinput :name 'button_y') (label :text '+') (sdinput :name 'dpad')"
+                      :action "(label :text 'Switch Windows')")
+
+        (shortcut_row :keys "(sdinput :name 'button_y') (sdinput :name 'button_y') (label :text '+') (sdinput :name 'dpad')"
+                      :action "(label :text 'Move Current Window')")
+
+        (shortcut_row :keys "(sdinput :name 'button_y') (label :text '+') (sdinput :name 'button_a')"
+                      :action "(label :text 'Open Terminal')")
+      )
+    )
+
+
+
+  ))
+
+(defwidget sdinput [name]
+  (image :path "${dactyl_dir}/assets/icons/steamdeck_${name}.svg" :image-height 32 :class "sdinput"))
+
+
+;; Define a reusable widget for a single row
+(defwidget shortcut_row [keys action]
+  (box :class "table-row" :orientation "h" :space-evenly true
+    (literal :valign "center" :class "text" :content "${text_start}${keys}${text_end}")
+    (literal :valign "center" :class "text" :content "${text_start}${action}${text_end}")))

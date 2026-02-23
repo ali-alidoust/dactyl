@@ -1,0 +1,34 @@
+* {
+all: unset;
+font-family: "sans-serif";
+}
+
+.container {
+    background-color: rgba(40, 40, 50, 0.95); /* Dark background */
+    color: #cdd6f4;            /* Light text */
+    padding: 20px 30px;
+    border-radius: 5px;
+    border: 0px solid #89b4fa; /* Blue accent border */
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.table-header label {
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #45475a; /* Divider line */
+}
+
+.table-row {
+    padding: 10px 0;
+}
+
+.text {
+    font-size: 15px;
+}
