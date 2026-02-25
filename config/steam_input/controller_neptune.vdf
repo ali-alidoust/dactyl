@@ -1,7 +1,7 @@
 "controller_mappings"
 {
 	"version"		"3"
-	"revision"		"189"
+	"revision"		"190"
 	"title"		"#Title"
 	"description"		"#SettingsController_AutosaveDescription"
 	"creator"		"76561198079078629"
@@ -12,7 +12,7 @@
 	"controller_caps"		"23117823"
 	"major_revision"		"0"
 	"minor_revision"		"0"
-	"Timestamp"		"-546306024"
+	"Timestamp"		"-544208872"
 	"localization"
 	{
 		"english"
@@ -175,9 +175,9 @@
 					{
 						"bindings"
 						{
-							"binding"		"key_press LEFT_SHIFT, , "
-							"binding"		"key_press LEFT_ALT, , "
 							"binding"		"key_press LEFT_CONTROL, , "
+							"binding"		"key_press LEFT_ALT, , "
+							"binding"		"key_press LEFT_SHIFT, , "
 							"binding"		"key_press Q, , "
 						}
 						"settings"
@@ -214,17 +214,17 @@
 					{
 						"bindings"
 						{
-							"binding"		"key_press LEFT_ALT, , "
 							"binding"		"key_press LEFT_CONTROL, , "
+							"binding"		"key_press LEFT_ALT, , "
 						}
 					}
 					"Double_Press"
 					{
 						"bindings"
 						{
-							"binding"		"key_press LEFT_SHIFT, , "
-							"binding"		"key_press LEFT_ALT, , "
 							"binding"		"key_press LEFT_CONTROL, , "
+							"binding"		"key_press LEFT_ALT, , "
+							"binding"		"key_press LEFT_SHIFT, , "
 						}
 					}
 				}
@@ -366,8 +366,8 @@
 					{
 						"bindings"
 						{
-							"binding"		"key_press LEFT_CONTROL, , "
 							"binding"		"key_press LEFT_SHIFT, , "
+							"binding"		"key_press LEFT_CONTROL, , "
 							"binding"		"key_press SPACE, , "
 						}
 						"settings"
@@ -546,8 +546,8 @@
 					{
 						"bindings"
 						{
-							"binding"		"key_press LEFT_ALT, , "
 							"binding"		"key_press LEFT_CONTROL, , "
+							"binding"		"key_press LEFT_ALT, , "
 							"binding"		"key_press F, , "
 						}
 					}
@@ -982,8 +982,8 @@
 					{
 						"bindings"
 						{
-							"binding"		"key_press LEFT_CONTROL, , "
 							"binding"		"key_press LEFT_ALT, , "
+							"binding"		"key_press LEFT_CONTROL, , "
 							"binding"		"key_press Z, , "
 						}
 						"settings"
@@ -1004,8 +1004,8 @@
 					{
 						"bindings"
 						{
-							"binding"		"key_press LEFT_CONTROL, , "
 							"binding"		"key_press LEFT_ALT, , "
+							"binding"		"key_press LEFT_CONTROL, , "
 							"binding"		"key_press D, , "
 						}
 					}
