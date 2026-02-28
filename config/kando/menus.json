@@ -1,0 +1,159 @@
+{
+  "version": "2.2.0",
+  "menus": [
+    {
+      "root": {
+        "type": "submenu",
+        "name": "Dactyl",
+        "icon": "apps",
+        "iconTheme": "material-symbols-rounded",
+        "children": [
+          {
+            "type": "command",
+            "data": {
+              "command": "zenity --question --default-cancel --text=\"Are you sure you want to exit Dactyl?\" && swaymsg exit",
+              "detached": true,
+              "isolated": false,
+              "delayed": false
+            },
+            "name": "Exit Dactyl",
+            "icon": "power_settings_new",
+            "iconTheme": "material-symbols-rounded"
+          },
+          {
+            "type": "settings",
+            "data": null,
+            "name": "Open Settings",
+            "icon": "settings-item.svg",
+            "iconTheme": "kando"
+          },
+          {
+            "type": "command",
+            "data": {
+              "command": "konsole",
+              "detached": true,
+              "isolated": false,
+              "delayed": false
+            },
+            "name": "Konsole",
+            "icon": "terminal",
+            "iconTheme": "material-symbols-rounded"
+          },
+          {
+            "type": "submenu",
+            "data": {},
+            "name": "Submenu",
+            "icon": "submenu-item.svg",
+            "iconTheme": "kando",
+            "children": [
+              {
+                "type": "uri",
+                "name": "Open URI",
+                "icon": "uri-item.svg",
+                "iconTheme": "kando",
+                "data": {
+                  "uri": ""
+                }
+              },
+              {
+                "type": "command",
+                "name": "VLC media player",
+                "icon": "vlcmediaplayer",
+                "iconTheme": "simple-icons",
+                "data": {
+                  "command": "/usr/bin/vlc --started-from-file",
+                  "detached": true,
+                  "isolated": false,
+                  "delayed": false
+                }
+              },
+              {
+                "type": "file",
+                "data": {
+                  "path": ""
+                },
+                "name": "",
+                "icon": "file-item.svg",
+                "iconTheme": "kando"
+              }
+            ]
+          }
+        ]
+      },
+      "shortcut": "",
+      "shortcutID": "dactyl",
+      "centered": true,
+      "anchored": false,
+      "hoverMode": false,
+      "tags": []
+    },
+    {
+      "root": {
+        "type": "submenu",
+        "name": "Discord",
+        "icon": "discord",
+        "iconTheme": "simple-icons",
+        "children": [
+          {
+            "type": "redirect",
+            "data": {
+              "menu": "Dactyl"
+            },
+            "name": "Dactyl",
+            "icon": "apps",
+            "iconTheme": "material-symbols-rounded"
+          },
+          {
+            "type": "hotkey",
+            "data": {
+              "hotkey": "ControlLeft+ShiftLeft+KeyM",
+              "delayed": true
+            },
+            "name": "Mute / Unmute Mic",
+            "icon": "mic_double",
+            "iconTheme": "material-symbols-rounded"
+          },
+          {
+            "type": "hotkey",
+            "data": {
+              "hotkey": "ControlLeft+KeyK",
+              "delayed": true
+            },
+            "name": "Channels / DMs",
+            "icon": "chat",
+            "iconTheme": "material-symbols-rounded"
+          },
+          {
+            "type": "hotkey",
+            "data": {
+              "hotkey": "ControlLeft+ShiftLeft+KeyD",
+              "delayed": true
+            },
+            "name": "Deafen / Undeafen",
+            "icon": "volume_off",
+            "iconTheme": "material-symbols-rounded"
+          }
+        ]
+      },
+      "shortcut": "",
+      "shortcutID": "dactyl",
+      "centered": true,
+      "anchored": false,
+      "hoverMode": false,
+      "conditions": {
+        "appName": "discord"
+      },
+      "tags": []
+    }
+  ],
+  "collections": [
+    {
+      "name": "Favorites",
+      "icon": "favorite",
+      "iconTheme": "material-symbols-rounded",
+      "tags": [
+        "favs"
+      ]
+    }
+  ]
+}

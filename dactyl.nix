@@ -43,7 +43,7 @@ let
     while true; do
         dbus-update-activation-environment --all
         echo "[Supervisor] Starting xdg-desktop-portal..."
-        # -r ensures it takes over the D-Bus name, -v for logs
+        # -r ensures it takes over the D-Bus name
         $PORTAL_BIN -r &
         PORTAL_PID=$!
 
@@ -65,12 +65,29 @@ let
 
   runSway = pkgs.writeShellScriptBin "run-sway" ''
     sleep 1
-    sway --config ${dactylDir}/config/sway.conf
+    sway --config "${dactylDir}/config/sway.conf"
   '';
+
+  dactylPortalService = pkgs.stdenv.mkDerivation {
+    pname = "xdg-desktop-portal-dactyl";
+    version = "1.0";
+
+    dontUnpack = true;
+
+    installPhase = ''
+      mkdir -p $out/share/dbus-1/services
+      cat > $out/share/dbus-1/services/org.freedesktop.impl.portal.desktop.dactyl.service <<EOF
+      [D-BUS Service]
+      Name=org.freedesktop.impl.portal.desktop.dactyl
+      Exec=${dactylDir}/bin/xdg-desktop-portal-dactyl.py
+      EOF
+    '';
+  };
 in
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
+    dactylPortalService
     runPortals
   ];
 
@@ -87,8 +104,6 @@ pkgs.mkShell {
     dunst
     eww
     xdg-desktop-portal
-    xdg-desktop-portal-wlr
-    slurp
   ];
 
   shellHook = ''
@@ -96,11 +111,11 @@ pkgs.mkShell {
     export GTK_THEME=Breeze-Dark
     export QT_STYLE_OVERRIDE=Breeze
     export EWW_ARGS="--force-wayland --config $DACTYL_DIR/config/eww"
-    export XDPW_CAPTURE_NODE=gamescope
     export XDG_CURRENT_DESKTOP=sway
     export XDG_SESSION_TYPE=wayland
-    export XDG_DATA_DIRS="$DACTYL_DIR/config:${pkgs.xdg-desktop-portal}/share:${pkgs.xdg-desktop-portal-wlr}/share:$XDG_DATA_DIRS"
-    unset XDG_DESKTOP_PORTAL_DIR # IMPORTANT: xdg-desktop-portal worn't check XDG_DATA_DIRS if this is set
+    export XDG_DATA_DIRS="$DACTYL_DIR/config:${pkgs.xdg-desktop-portal}:${dactylPortalService}/share:$DACTYL_DIR/config/xdg-desktop-portal-dactyl:$XDG_DATA_DIRS"
+    # IMPORTANT: xdg-desktop-portal worn't check XDG_DATA_DIRS if XDG_DESKTOP_PORTAL_DIR is set
+    unset XDG_DESKTOP_PORTAL_DIR
     dbus-run-session ${runSway}/bin/run-sway
   '';
 }

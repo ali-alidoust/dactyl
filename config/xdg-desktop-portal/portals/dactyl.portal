@@ -1,0 +1,3 @@
+[portal]
+DBusName=org.freedesktop.impl.portal.desktop.dactyl
+Interfaces=org.freedesktop.impl.portal.ScreenCast

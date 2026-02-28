@@ -1,4 +1,4 @@
-config/kando
+config/kando/*
 !config/kando/config.json
 !config/kando/menus.json
 
