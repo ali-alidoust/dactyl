@@ -83,12 +83,26 @@ let
       EOF
     '';
   };
+
+  fakeHyprctl = pkgs.writeShellScriptBin "hyprctl" ''
+    for var in "$@"; do
+      if [ "$var" = "activewindow" ]; then
+        swaymsg --raw --type get_tree | jq 'first(recurse(.nodes[]) | del(.nodes) | select(.focused == true)) // {} | { "initialTitle" : .name // .window_properties.title // "", "initialClass" : .app_id // .window_properties.class // "" } // {}'
+        exit 0
+      elif [ "$var" = "cursorpos" ]; then
+        xdotool getmouselocation --shell | jq -R 'split("=") | {(.[0]): .[1]}' | jq -s 'add | {"x": (.X // 640) | tonumber, "y": (.Y // 400) | tonumber}'
+        exit 0
+      fi
+    done
+    echo "{}"
+  '';
 in
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
     dactylPortalService
     runPortals
+    fakeHyprctl
   ];
 
   packages = with pkgs; [

@@ -5,13 +5,13 @@
       "root": {
         "type": "submenu",
         "name": "Dactyl",
-        "icon": "apps",
+        "icon": "api",
         "iconTheme": "material-symbols-rounded",
         "children": [
           {
             "type": "command",
             "data": {
-              "command": "zenity --question --default-cancel --text=\"Are you sure you want to exit Dactyl?\" && swaymsg exit",
+              "command": "zenity --question --default-cancel --text='Are you sure you want to exit Dactyl?' && swaymsg exit",
               "detached": true,
               "isolated": false,
               "delayed": false
@@ -38,45 +38,6 @@
             "name": "Konsole",
             "icon": "terminal",
             "iconTheme": "material-symbols-rounded"
-          },
-          {
-            "type": "submenu",
-            "data": {},
-            "name": "Submenu",
-            "icon": "submenu-item.svg",
-            "iconTheme": "kando",
-            "children": [
-              {
-                "type": "uri",
-                "name": "Open URI",
-                "icon": "uri-item.svg",
-                "iconTheme": "kando",
-                "data": {
-                  "uri": ""
-                }
-              },
-              {
-                "type": "command",
-                "name": "VLC media player",
-                "icon": "vlcmediaplayer",
-                "iconTheme": "simple-icons",
-                "data": {
-                  "command": "/usr/bin/vlc --started-from-file",
-                  "detached": true,
-                  "isolated": false,
-                  "delayed": false
-                }
-              },
-              {
-                "type": "file",
-                "data": {
-                  "path": ""
-                },
-                "name": "",
-                "icon": "file-item.svg",
-                "iconTheme": "kando"
-              }
-            ]
           }
         ]
       },
@@ -100,7 +61,7 @@
               "menu": "Dactyl"
             },
             "name": "Dactyl",
-            "icon": "apps",
+            "icon": "api",
             "iconTheme": "material-symbols-rounded"
           },
           {
@@ -141,7 +102,7 @@
       "anchored": false,
       "hoverMode": false,
       "conditions": {
-        "appName": "discord"
+        "appName": "/discord|vesktop/"
       },
       "tags": []
     }

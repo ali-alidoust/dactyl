@@ -45,5 +45,5 @@
   "gamepadCloseButton": 2,
   "sameShortcutBehavior": "close",
   "useDefaultOsShowSettingsHotkey": true,
-  "enableAchievements": true
+  "enableAchievements": false
 }
