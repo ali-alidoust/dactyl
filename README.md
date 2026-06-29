@@ -1,5 +1,8 @@
 # Dactyl
 
+> [!CAUTION]
+> This is HIGHLY EXPERIMENTAL and might break your device. Use with caution.
+
 ## Installation
 1. Clone this repository
   ```bash
